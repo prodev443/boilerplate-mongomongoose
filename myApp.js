@@ -23,14 +23,14 @@ const createAndSavePerson = (done) => {
     favoriteFoods: ["Tacos de suadero"],
   });
   person.save((err, data) => {
-    if (err) return console.log(err);
+    if (err) return console.error(err);
     done(null, data);
   });
 };
 
 const createManyPeople = (arrayOfPeople, done) => {
   Person.create(arrayOfPeople, (err, data) => {
-    if (err) return console.log(err);
+    if (err) return console.error(err);
     done(null, data);
   });
 };
@@ -41,7 +41,7 @@ const findPeopleByName = (personName, done) => {
       name: personName,
     },
     (err, data) => {
-      if (err) return console.log(err);
+      if (err) return console.error(err);
       done(null, data);
     }
   );
@@ -53,7 +53,7 @@ const findOneByFood = (food, done) => {
       favoriteFoods: food,
     },
     (err, data) => {
-      if (err) return console.log(err);
+      if (err) return console.error(err);
       done(null, data);
     }
   );
